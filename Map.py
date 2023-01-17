@@ -114,3 +114,40 @@ class Map:
 
     #show the plot
     plt.show()
+
+  def visualizeIndividual(self, map, individual):
+
+    copia = map.copy()
+    moves = [[0, -1], [-1, 0], [0, 1], [1, 0]]
+    point = cp_list[0]
+    
+    for m in individual.path:
+      point = [point[0] + moves[m][0], point[1] + moves[m][1]]
+      
+      if copia[point[0]][point[1]] == 2:
+        continue
+      else:
+        copia[point[0]][point[1]] = 3
+
+    plt.figure(figsize=(12,12))
+
+    ax = sns.heatmap(copia, cbar = False, cmap = sns.color_palette("coolwarm", 12),linewidth = 1)
+    ax.invert_yaxis()
+
+    x = [self.cp_list[i][1] + 0.5 for i in range(len(self.cp_list))]
+    y = [self.cp_list[i][0] + 0.5 for i in range(len(self.cp_list))]
+
+    #plot the lines
+    plt.plot(x, y, 'ro-')
+
+    #add text near the point
+    plt.text(x[0] - 0.25, y[0] - 0.25, 'Start')
+    for i in range(1,len(x)-1):
+      plt.text(x[i] + 0.15, y[i] + 0.15, str(i))
+    plt.text(x[-1] - 0.20, y[-1] - 0.20, 'End')
+
+    plt.ylim(0,self.rows)
+    plt.xlim(0,self.columns)
+
+    #show the plot
+    plt.show()
