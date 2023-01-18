@@ -123,6 +123,10 @@ class Map:
     
     for m in individual.path:
       point = [point[0] + moves[m][0], point[1] + moves[m][1]]
+
+       if point[0] >= self.rows or point[1] >= self.columns or point[0] < 0 or point[1] < 0:
+        point = [point[0] - moves[m][0], point[1] - moves[m][1]]
+        continue
       
       if copia[point[0]][point[1]] == 2:
         continue
