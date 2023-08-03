@@ -1,1 +1,2 @@
-# Orienteering_GA
+# OrienteeringGA
+OrienteeringGA is my project for the course Artificial Intelligence Foundaments. I have developed a genetic algorithm that play orieentiring: given a map (a grid) where are defined a starting point, a specified number of control points and an arrival point, the algorithm finds the optimal path form the starting point, passing through all the control points and finish in the arrival point.
