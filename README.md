@@ -8,7 +8,8 @@ You can find the project either as a notebook or as a .py files, in the file fol
  - `Seaborn`
  - `argparse`
  
-You can execute the 'orieentiring_ga.py' file on terminal, giving the following arguments:
+If you use the notebook, go down to the Map creation cell and change the parameters of the constructor of the `Map` for trying different maps,  then change the parameter of the `geneticAlgorithm` function to run different experiments.
+Else,  can execute the `orieentiring_ga.py` file on terminal, giving the following arguments:
  - **POP_DIM**: the dimension of the starting population;
  - **ITERATION**: the number of maximum iteration;
  - **MUTATION_RATE**: the mutation rate;
