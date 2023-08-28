@@ -8,7 +8,7 @@ You can find the project either as a notebook or as a .py files, in the file fol
  - `Seaborn`
  - `argparse`
  
-You can execute the orieentiring_ga.py file on terminal, giving the following arguments:
+You can execute the 'orieentiring_ga.py' file on terminal, giving the following arguments:
  - **POP_DIM**: the dimension of the starting population;
  - **ITERATION**: the number of maximum iteration;
  - **MUTATION_RATE**: the mutation rate;
