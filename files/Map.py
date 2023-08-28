@@ -56,21 +56,26 @@ class Map:
         # else, place the obstacle
         map_array[x_obstacle][y_obstacle] = 1
 
-      # next, place the control point
-      if self.number_of_cp != 0:
+    # next, place the control point
+    for i in range(self.number_of_cp):
 
+      while True:
         # randomically, create the coordinates where to put the control point
-        x_cp = np.random.randint(0,self.rows)
-        y_cp = np.random.randint(0,self.columns)
+        x_cp = np.random.randint(1, self.rows - 1)
+        y_cp = np.random.randint(1, self.columns - 1)
 
-        # check if the control point is over an obstacle
-        if map_array[x_cp][y_cp] == 1:
-          # if true, do not put the control point
-          continue
+        # check if one of the djacent_cells contains an obstacles
+        adjacent_cells = [(x_cp + dx, y_cp + dy) for dx, dy in [[0, -1], [-1, 0], [0, 1], [1, 0]]]
+        if any(map_array[x][y] == 1 for x, y in adjacent_cells):
+            # if there is, find new coordinates for the control points
+            continue
         else:
-          map_array[x_cp][y_cp] = 2 # put the control point
-          self.cp_list.append([x_cp,y_cp]) # add the coordinate to the list of all control points
-          self.number_of_cp -= 1 # reduce the number of control points
+            # else, place the control point
+            map_array[x_cp][y_cp] = 2
+            self.cp_list.append([x_cp, y_cp])
+            self.number_of_cp -= 1
+            break
+
 
     # I have decided to sort the control point vertically or horizontally based on a random number
     probability = np.random.uniform(0,1,1)
