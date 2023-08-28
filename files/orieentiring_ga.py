@@ -420,13 +420,13 @@ def getBestIndividual(population):
 
 
 parser = argparse.ArgumentParser(description="Genetic algorithm for orieentiring")
-parser.add_argument("--pop_dim", type=int, required=True, help="Population dimension")
-parser.add_argument("--iteration", type=int, required=True, help="Number of iterations")
-parser.add_argument("--mutation_rate", type=float, required=True, help="Mutation rate")
-parser.add_argument("--rows", type=int, required=True, help="Number of rows for the map")
-parser.add_argument("--columns", type=int, required=True, help="Number of columns for the map")
-parser.add_argument("--num_obstacles", type=int, required=True, help="Number of obstacles for the map")
-parser.add_argument("--num_control_points", type=int, required=True, help="Number of control points for the map")
+parser.add_argument("--pop_dim", type=int, required=True, help="Population dimension, int")
+parser.add_argument("--iteration", type=int, required=True, help="Number of iterations, int")
+parser.add_argument("--mutation_rate", type=float, required=True, help="Mutation rate, float")
+parser.add_argument("--rows", type=int, required=True, help="Number of rows for the map, int")
+parser.add_argument("--columns", type=int, required=True, help="Number of columns for the map, int")
+parser.add_argument("--num_obstacles", type=int, required=True, help="Number of obstacles for the map, int")
+parser.add_argument("--num_control_points", type=int, required=True, help="Number of control points for the map, int")
 args = parser.parse_args()
 
 map_instance = Map(args.rows, args.columns, args.num_obstacles, args.num_control_points)
